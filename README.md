@@ -1,1 +1,6 @@
-# TDD-Uppgift-Grupp-Dima-Jesper
+# TDD-Uppgift-Grupp
+- Gruppnamn: [Kings]
+- Medlemmar:
+  - [Dimitri]
+  - [Jesper]
+    
