@@ -24,5 +24,12 @@ class CarTest {
         assertTrue(car.lightsOn);
 
     }
+    @Test
+    public void backLights(){
+        Car car = new Car();
+        car.switchBackLightsOn();
+        assertTrue(car.backLightsOn);
+    }
+
 
 }
