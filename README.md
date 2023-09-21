@@ -3,4 +3,7 @@
 - Medlemmar:
   - [Dimitri]
   - [Jesper]
+  - [Daniel Karimi]
+  - [Pa]
+  - [Oumar]
     
