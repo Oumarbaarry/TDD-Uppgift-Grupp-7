@@ -4,6 +4,7 @@ public class Car {
    public boolean lightsOn = false;
    public boolean backLightsOn = true;
    public boolean halfLight = false;
+   public boolean carOn = true;
 
    public void switchLightsOn() {
       this.lightsOn = true;
@@ -15,5 +16,9 @@ public class Car {
 
    public void wholeLight() {
         this.halfLight = false;
+   }
+
+   public void startCar() {
+
    }
 }

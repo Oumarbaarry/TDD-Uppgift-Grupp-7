@@ -37,5 +37,11 @@ class CarTest {
         assertFalse(car.halfLight);
 
     }
+    @Test
+    public void startCar(){
+        Car car = new Car();
+        car.startCar();
+        assertTrue(car.carOn);
+    }
 
 }
