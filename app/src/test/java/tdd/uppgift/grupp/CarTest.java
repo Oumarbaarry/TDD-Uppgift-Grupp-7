@@ -14,8 +14,14 @@ class CarTest {
     @Test
     public void testCarLights(){
         Car car = new Car();
-        car.lightsOn = false;
         assertFalse(car.lightsOn);
+
+    }
+    @Test
+    public void lightsOn(){
+        Car car = new Car();
+        car.switchLightsOn();
+        assertTrue(car.lightsOn);
 
     }
 
