@@ -43,5 +43,23 @@ class CarTest {
         car.startCar();
         assertTrue(car.carOn);
     }
+    @Test
+    public void carOffLightsOff(){
+        Car car = new Car();
+        car.turnOffCar();
+        assertFalse(car.lightsOn);
 
+
+    }
+    @Test
+    public void testTurnOffCar() {
+        Car car = new Car();
+        car.startCar();
+        assertTrue(car.carOn);
+        car.turnOffCar();
+        assertFalse(car.carOn);
+        assertFalse(car.lightsOn);
+        assertFalse(car.backLightsOn);
+        assertFalse(car.halfLight);
+    }
 }
