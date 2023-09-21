@@ -30,6 +30,12 @@ class CarTest {
         car.switchBackLightsOn();
         assertTrue(car.backLightsOn);
     }
+    @Test
+    public void halfLightWholeLight(){
+        Car car = new Car();
+        car.wholeLight();
+        assertFalse(car.halfLight);
 
+    }
 
 }
