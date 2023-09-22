@@ -1,16 +1,19 @@
 package tdd.uppgift.grupp;
 
 public class Car implements CarInterface{
-   public boolean lightsOn = false;
-   public boolean backLightsOn = true;
-   public boolean halfLight = false;
-   public boolean carOn = false;
+   public boolean lightsOn;
+   public boolean backLightsOn;
+   public boolean halfLight;
+   public boolean carOn;
+   public boolean hazardLightsOn;
 
 
 
    @Override
    public void switchLightsOn() {
+      if(carOn){
       this.lightsOn = true;
+   }
    }
    @Override
    public void switchBackLightsOn() {
@@ -19,10 +22,16 @@ public class Car implements CarInterface{
    @Override
    public void wholeLight() {
         this.halfLight = false;
+
+
    }
    @Override
    public void startCar() {
+
         this.carOn = true;
+
+            switchLightsOn();
+
    }
 
    @Override
@@ -37,4 +46,9 @@ public class Car implements CarInterface{
       this.carOn = false;
       turnOffLights();
    }
+
+   public void turnOnHazardLight() {
+      this.hazardLightsOn = true;
+   }
+
 }
