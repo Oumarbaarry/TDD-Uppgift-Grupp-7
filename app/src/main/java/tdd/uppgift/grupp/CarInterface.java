@@ -16,4 +16,8 @@ public interface CarInterface {
     void turnOnHazardLight();
 
     void turnOffHazardLight();
+
+    int getSpeed();
+
+    void accelerate(int amount);
 }

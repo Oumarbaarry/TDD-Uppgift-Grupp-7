@@ -88,4 +88,13 @@ class CarTest {
         car.turnOffHazardLight();
         assertTrue(car.hazardlightsOf);
     }
+    @Test
+    public void testAccelerate(){
+        Car car = new Car();
+        car.startCar();
+        assertEquals(0, car.getSpeed());
+        car.accelerate(100);
+        assertEquals(100, car.getSpeed());
+
+    }
 }

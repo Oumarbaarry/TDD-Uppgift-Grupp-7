@@ -7,6 +7,7 @@ public class Car implements CarInterface{
    public boolean carOn;
    public boolean hazardLightsOn;
    public boolean hazardlightsOf;
+   public int speed;
 
 
    @Override
@@ -56,6 +57,16 @@ public class Car implements CarInterface{
       this.hazardlightsOf = true;
    }
 
+   @Override
+   public int getSpeed() {
 
+      return speed;
+   }
+   @Override
+   public void accelerate(int amount) {
+      if(carOn){
+         speed += amount;
+      }
 
+   }
 }
