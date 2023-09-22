@@ -6,7 +6,7 @@ public class Car implements CarInterface{
    public boolean halfLight;
    public boolean carOn;
    public boolean hazardLightsOn;
-
+   public boolean hazardlightsOf;
 
 
    @Override
@@ -47,8 +47,15 @@ public class Car implements CarInterface{
       turnOffLights();
    }
 
+   @Override
    public void turnOnHazardLight() {
-      this.hazardLightsOn = true;
+      this.hazardLightsOn  = true;
    }
+   @Override
+   public void turnOffHazardLight() {
+      this.hazardlightsOf = true;
+   }
+
+
 
 }

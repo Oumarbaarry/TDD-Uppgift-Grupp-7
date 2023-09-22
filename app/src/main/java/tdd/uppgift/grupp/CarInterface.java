@@ -12,4 +12,8 @@ public interface CarInterface {
 
     void turnOffLights();
     void turnOffCar();
+
+    void turnOnHazardLight();
+
+    void turnOffHazardLight();
 }

@@ -45,6 +45,7 @@ class CarTest {
     @Test
     public void startCar() {
         Car car = new Car();
+        assertFalse(car.carOn);
         car.startCar();
         assertTrue(car.carOn);
     }
@@ -77,7 +78,14 @@ class CarTest {
         car.turnOnHazardLight();
         assertTrue(car.hazardLightsOn);
 
-
-
+    }
+    @Test
+    public void testTurnHazardLightsof(){
+        Car car = new Car();
+        assertFalse(car.hazardLightsOn);
+        car.turnOnHazardLight();
+        assertTrue(car.hazardLightsOn);
+        car.turnOffHazardLight();
+        assertTrue(car.hazardlightsOf);
     }
 }
