@@ -83,5 +83,13 @@ public class Car implements CarInterface{
 
       }
    }
+   @Override
+   public void decelerate(int amount) {
+      if (carOn && brakePedalPressed) {
+         int newSpeed = speed - amount;
+         speed = Math.max(newSpeed, 0);
+      }
+   }
+
 }
 

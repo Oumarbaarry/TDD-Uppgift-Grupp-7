@@ -109,5 +109,16 @@ class CarTest {
             }
             assertEquals(180, car.getSpeed());
         }
+    @Test
+    public void testDecelerateToZero() {
+        Car car = new Car();
+        car.startCar();
+        car.pressGasPedal();
+        while (car.getSpeed() > 0) {
+            car.decelerate(10);
+        }
+        assertEquals(0, car.getSpeed());
     }
+
+}
 

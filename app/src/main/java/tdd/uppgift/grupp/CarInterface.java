@@ -22,4 +22,6 @@ public interface CarInterface {
     void accelerate(int amount);
 
     void pressGasPedal();
+
+    void decelerate(int amount);
 }
