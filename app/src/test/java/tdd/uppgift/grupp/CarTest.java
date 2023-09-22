@@ -97,4 +97,17 @@ class CarTest {
         assertEquals(100, car.getSpeed());
 
     }
-}
+
+
+        @Test
+        public void testAccelerateToMaxSpeed() {
+            Car car = new Car();
+            car.startCar();
+            car.pressGasPedal();
+            while (car.getSpeed() < 180) {
+                car.accelerate(10);
+            }
+            assertEquals(180, car.getSpeed());
+        }
+    }
+

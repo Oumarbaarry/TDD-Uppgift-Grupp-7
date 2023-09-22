@@ -20,4 +20,6 @@ public interface CarInterface {
     int getSpeed();
 
     void accelerate(int amount);
+
+    void pressGasPedal();
 }

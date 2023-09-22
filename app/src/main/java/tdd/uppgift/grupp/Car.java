@@ -7,7 +7,11 @@ public class Car implements CarInterface{
    public boolean carOn;
    public boolean hazardLightsOn;
    public boolean hazardlightsOf;
+
+   private boolean gasPedalPressed = false;
+   private boolean brakePedalPressed = false;
    public int speed;
+   public boolean gasOn;
 
 
    @Override
@@ -64,9 +68,20 @@ public class Car implements CarInterface{
    }
    @Override
    public void accelerate(int amount) {
-      if(carOn){
-         speed += amount;
+      if (carOn && gasPedalPressed) {
+         int newSpeed = speed + amount;
+         speed = Math.min(newSpeed, 180);
       }
+   }
 
+
+
+   @Override
+   public void pressGasPedal() {
+      if (carOn) {
+         gasPedalPressed = true;
+
+      }
    }
 }
+
