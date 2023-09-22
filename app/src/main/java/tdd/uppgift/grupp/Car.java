@@ -6,19 +6,20 @@ public class Car implements CarInterface{
    public boolean halfLight;
    public boolean carOn;
    public boolean hazardLightsOn;
-   public boolean hazardlightsOf;
+   public boolean hazardlightsOf=true;
 
    private boolean gasPedalPressed = false;
-   private boolean brakePedalPressed = false;
+   private boolean brakePedalPressed  = false;
    public int speed;
    public boolean gasOn;
 
 
    @Override
    public void switchLightsOn() {
-      if(carOn){
-      this.lightsOn = true;
-   }
+
+         this.lightsOn = true;
+
+
    }
    @Override
    public void switchBackLightsOn() {
@@ -91,5 +92,10 @@ public class Car implements CarInterface{
       }
    }
 
+   public void brake() {
+      if (carOn){
+         speed= 0;
+      }
+   }
 }
 

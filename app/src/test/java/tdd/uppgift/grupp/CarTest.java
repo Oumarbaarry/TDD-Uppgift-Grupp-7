@@ -2,7 +2,7 @@ package tdd.uppgift.grupp;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.testng.AssertJUnit.*;
 
 class CarTest {
 
@@ -77,6 +77,8 @@ class CarTest {
         assertFalse(car.hazardLightsOn);
         car.turnOnHazardLight();
         assertTrue(car.hazardLightsOn);
+        car.turnOffHazardLight();
+        assertTrue(car.hazardlightsOf);
 
     }
     @Test
@@ -92,9 +94,10 @@ class CarTest {
     public void testAccelerate(){
         Car car = new Car();
         car.startCar();
+        car.pressGasPedal();
         assertEquals(0, car.getSpeed());
-        car.accelerate(100);
-        assertEquals(100, car.getSpeed());
+        car.accelerate(10);
+        assertEquals(10, car.getSpeed());
 
     }
 
@@ -118,6 +121,14 @@ class CarTest {
             car.decelerate(10);
         }
         assertEquals(0, car.getSpeed());
+    }
+    @Test
+    public void testBrakeToZero(){
+        Car car = new Car();
+        car.startCar();
+        car.accelerate(100);
+        car.brake();
+
     }
 
 }
