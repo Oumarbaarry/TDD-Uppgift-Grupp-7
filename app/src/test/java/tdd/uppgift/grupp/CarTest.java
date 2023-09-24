@@ -48,6 +48,13 @@ class CarTest {
         assertTrue(car.hasLowBeam());
     }
 
+    @Test
+    public void testHasTailLights() {
+        Car car = new Car();
+        car.turnOnLights();
+        assertTrue(car.hasTailLights());
+    }
+
 
 
 }
