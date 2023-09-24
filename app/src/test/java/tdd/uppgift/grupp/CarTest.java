@@ -103,6 +103,23 @@ class CarTest {
         assertTrue(car.isAccelerating());
     }
 
+    @Test
+    public void testAccelerateCarWhenCarIsOff() {
+        Car car = new Car();
+        car.startCar();
+        car.stopCar();
+        car.accelerate();
+        assertFalse(car.isAccelerating());
+    }
+
+    @Test
+    public void testBrakeCar() {
+        Car car = new Car();
+        car.startCar();
+        car.brake();
+        assertTrue(car.isBraking());
+    }
+
 
 
 }
