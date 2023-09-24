@@ -204,15 +204,14 @@ public class Car {
     }
   }
 
-//  public void ifBatteryEmptySetGasStateToZero(){
-//    if(batteryLevel == 0){
-//      this.gasState = 0;
-//    }
-//  }
-
-//  public void releaseGasAndBrake() {
-//    gasState = 0;
-//  }
+  public void chargeBattery(int chargeAmount){
+    if (chargeAmount > 0){
+      batteryLevel += chargeAmount;
+      if (batteryLevel > 100){
+        batteryLevel = 100;
+      }
+    }
+  }
 
 }
 

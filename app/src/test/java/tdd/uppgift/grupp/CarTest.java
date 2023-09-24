@@ -266,14 +266,26 @@ class CarTest {
     Car car = new Car();
     car.startCar();
     car.turnOnLights();
-
     while (car.getBatteryLevel() > 0) {
       car.accelerate();
     }
 
     car.useHazardLights();
-
     assertTrue(car.areHazardLightsOn());
+  }
+
+  @Test
+  public void testChargeBattery() {
+    Car car = new Car();
+    car.startCar();
+    car.turnOnLights();
+    car.accelerate();
+    System.out.println(car.getBatteryLevel());
+
+    car.chargeBattery(3);
+    System.out.println(car.getBatteryLevel());
+
+    assertEquals(97, car.getBatteryLevel());
   }
 
 
