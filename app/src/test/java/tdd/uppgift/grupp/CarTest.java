@@ -187,6 +187,14 @@ class CarTest {
     assertEquals("drive", car.getGear());
   }
 
+  @Test
+  public void testBrakeTurnsOnBrakeLight() {
+    Car car = new Car();
+    car.startCar();
+    car.brake();
+    assertTrue(car.isBrakeLightOn());
+  }
+
 }
 
 

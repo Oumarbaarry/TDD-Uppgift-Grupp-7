@@ -10,6 +10,7 @@ public class Car {
   private int gasState; // Accelerate = 1, Brake = -1, Release gas and brake = 0
   private int currentSpeed;
   private String gear;
+  private boolean brakeLightOn;
 
   public Car() {
     this.isRunning = false;
@@ -21,6 +22,7 @@ public class Car {
     this.gasState = 0;
     this.currentSpeed = 0;
     this.gear = "drive";
+    this.brakeLightOn = false;
   }
 
 
@@ -67,6 +69,10 @@ public class Car {
 
   public String getGear() {
     return gear;
+  }
+
+  public boolean isBrakeLightOn() {
+    return brakeLightOn;
   }
 
 
@@ -135,6 +141,7 @@ public class Car {
         currentSpeed = 0;
       }
       gasState = -1;
+      brakeLightOn = true;
     }
   }
 
