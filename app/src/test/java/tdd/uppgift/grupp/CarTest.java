@@ -211,6 +211,14 @@ class CarTest {
     assertNotNull(car.getBatteryLevel());
   }
 
+  @Test
+  public void testThatCarConsumesBatteryWhileDriving() {
+    Car car = new Car();
+    car.startCar();
+    car.accelerate();
+    assertTrue(car.getBatteryLevel() < 100);
+  }
+
 }
 
 

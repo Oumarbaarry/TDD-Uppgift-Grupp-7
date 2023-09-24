@@ -131,12 +131,13 @@ public class Car {
 
   public void accelerate() {
     if (isRunning && gear.equals("drive")) {
-
+      consumeBattery();
       if (currentSpeed + 10 <= 180) {
         currentSpeed += 10;
       }
       gasState = 1;
     } else if(isRunning && gear.equals("reverse")) {
+      consumeBattery();
       if (currentSpeed - 10 >= -50) {
         currentSpeed -= 10;
       }
@@ -144,6 +145,7 @@ public class Car {
     } else {
       gasState = 0;
     }
+
   }
 
   public void brake() {
@@ -170,6 +172,15 @@ public class Car {
     if (isRunning && currentSpeed == 0) {
       if (newGear.equals("drive") || newGear.equals("reverse")) {
         gear = newGear;
+      }
+    }
+  }
+
+  public void consumeBattery() {
+    if (isRunning) {
+      batteryLevel -= 5;
+      if (batteryLevel < 0) {
+        batteryLevel = 0;
       }
     }
   }
