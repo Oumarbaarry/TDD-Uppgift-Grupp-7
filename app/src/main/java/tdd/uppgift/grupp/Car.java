@@ -123,10 +123,15 @@ public class Car {
 
   public void brake() {
     if (isRunning) {
-      currentSpeed -= 10;
+      if (currentSpeed - 10 >= 0) {
+        currentSpeed -= 10;
+      } else {
+        currentSpeed = 0;
+      }
       gasState = -1;
     }
   }
+
 
   public void releaseGasAndBrake() {
     gasState = 0;
