@@ -120,6 +120,22 @@ class CarTest {
         assertTrue(car.isBraking());
     }
 
+    @Test
+    public void testMaxSpeedLimitIs180() {
+        Car car = new Car();
+        car.startCar();
+
+        while (car.getCurrentSpeed() < 170) {
+            car.accelerate();
+        }
+
+        car.accelerate();
+
+        assertTrue(car.getCurrentSpeed() <= 180);
+    }
+
+
+
 
 
 }

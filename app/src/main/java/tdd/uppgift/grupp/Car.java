@@ -7,7 +7,8 @@ public class Car  {
   private boolean hasTailLights;
   private boolean isRunning;
   private boolean hazardLightsOn;
-  private int gasState;
+  private int gasState; // Accelerate = 1, Brake = -1, Release gas and brake = 0
+  private int currentSpeed;
 
   public Car() {
     this.isRunning = false;
@@ -17,6 +18,7 @@ public class Car  {
     this.hasTailLights = false;
     this.hazardLightsOn = false;
     this.gasState = 0;
+    this.currentSpeed = 0;
   }
 
 
@@ -55,6 +57,10 @@ public class Car  {
 
   public boolean isNeitherAcceleratingNorBraking() {
     return gasState == 0;
+  }
+
+  public int getCurrentSpeed() {
+    return currentSpeed;
   }
 
 
@@ -107,18 +113,22 @@ public class Car  {
 
   public void accelerate() {
     if (isRunning) {
-      this.gasState = 1; // Gasar
+
+      if (currentSpeed + 10 <= 180) {
+        currentSpeed += 10;
+      }
+      gasState = 1;
     }
   }
 
   public void brake() {
     if (isRunning) {
-      gasState = -1; // Bromsar
+      gasState = -1;
     }
   }
 
   public void releaseGasAndBrake() {
-    gasState = 0; // Släpp gasen och bromsen
+    gasState = 0;
   }
 
 
