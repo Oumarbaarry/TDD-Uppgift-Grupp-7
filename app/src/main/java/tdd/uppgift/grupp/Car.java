@@ -5,14 +5,18 @@ public class Car  {
   private boolean hasHighBeam;
   private boolean hasLowBeam;
   private boolean hasTailLights;
+  private boolean isRunning;
 
   public Car() {
+    this.isRunning = false;
     this.hasLights = false;
     this.hasHighBeam = false;
     this.hasLowBeam = false;
     this.hasTailLights = false;
   }
 
+
+  //GETTERS
   public boolean hasLights() {
     return hasLights;
   }
@@ -27,6 +31,20 @@ public class Car  {
 
   public boolean hasTailLights() {
     return hasTailLights;
+  }
+
+  public boolean isRunning() {
+    return isRunning;
+  }
+
+
+  //METHODS
+
+  public void startCar() {
+    this.isRunning = true;
+    this.hasLowBeam = true;
+    this.hasLights = true;
+    this.hasTailLights = true;
   }
 
   public void turnOnLights() {

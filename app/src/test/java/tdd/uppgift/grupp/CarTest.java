@@ -55,6 +55,13 @@ class CarTest {
         assertTrue(car.hasTailLights());
     }
 
+    @Test
+    public void testStartCar() {
+        Car car = new Car();
+        car.startCar();
+        assertTrue(car.isRunning());
+    }
+
 
 
 }
