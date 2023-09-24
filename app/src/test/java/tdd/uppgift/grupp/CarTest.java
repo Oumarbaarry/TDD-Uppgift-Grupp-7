@@ -205,6 +205,12 @@ class CarTest {
     assertEquals(0, car.getCurrentSpeed());
   }
 
+  @Test
+  public void testCarHasBattery() {
+    Car car = new Car();
+    assertNotNull(car.getBatteryLevel());
+  }
+
 }
 
 

@@ -11,6 +11,7 @@ public class Car {
   private int currentSpeed;
   private String gear;
   private boolean brakeLightOn;
+  private int batteryLevel;
 
   public Car() {
     this.isRunning = false;
@@ -23,6 +24,7 @@ public class Car {
     this.currentSpeed = 0;
     this.gear = "drive";
     this.brakeLightOn = false;
+    this.batteryLevel = 100;
   }
 
 
@@ -73,6 +75,10 @@ public class Car {
 
   public boolean isBrakeLightOn() {
     return brakeLightOn;
+  }
+
+  public int getBatteryLevel() {
+    return batteryLevel;
   }
 
 
