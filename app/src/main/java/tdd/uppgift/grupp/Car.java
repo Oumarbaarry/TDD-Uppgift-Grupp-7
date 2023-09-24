@@ -47,6 +47,11 @@ public class Car  {
     this.hasTailLights = true;
   }
 
+  public void stopCar() {
+    this.isRunning = false;
+    turnOffLights();
+  }
+
   public void turnOnLights() {
     this.hasLights = true;
     this.hasLowBeam = true;
@@ -55,6 +60,9 @@ public class Car  {
 
   public void turnOffLights() {
     this.hasLights = false;
+    this.hasHighBeam = false;
+    this.hasLowBeam = false;
+    this.hasTailLights = false;
   }
 
   public void setHighBeam() {

@@ -62,6 +62,22 @@ class CarTest {
         assertTrue(car.isRunning());
     }
 
+    @Test
+    public void testStopCar() {
+        Car car = new Car();
+        car.startCar();
+        car.stopCar();
+        assertFalse(car.isRunning());
+    }
+
+    @Test
+    public void testTurnOffLightsWhenCarIsOff() {
+        Car car = new Car();
+        car.startCar();
+        car.stopCar();
+        assertFalse(car.hasLights());
+    }
+
 
 
 }
