@@ -219,6 +219,32 @@ class CarTest {
     assertTrue(car.getBatteryLevel() < 100);
   }
 
+  @Test
+  public void testConsumeBatteryWithLightsOn() {
+    Car car = new Car();
+    car.startCar();
+    car.turnOnLights();
+    int initialBatteryLevel = car.getBatteryLevel();
+
+    car.consumeBattery();
+
+    int expectedBatteryLevel = initialBatteryLevel - 6;
+    assertEquals(expectedBatteryLevel, car.getBatteryLevel());
+  }
+
+  @Test
+  public void testConsumeBatteryWithLightsOff() {
+    Car car = new Car();
+    car.startCar();
+    car.turnOffLights();
+    int initialBatteryLevel = car.getBatteryLevel();
+
+    car.consumeBattery();
+
+    int expectedBatteryLevel = initialBatteryLevel - 5;
+    assertEquals(expectedBatteryLevel, car.getBatteryLevel());
+  }
+
 }
 
 

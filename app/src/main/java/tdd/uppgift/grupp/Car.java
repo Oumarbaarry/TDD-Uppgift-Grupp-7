@@ -178,7 +178,12 @@ public class Car {
 
   public void consumeBattery() {
     if (isRunning) {
-      batteryLevel -= 5;
+      if (hasLights) {
+        batteryLevel -= 1; // Lysen drar 1 enhet batteri.
+      }
+
+      batteryLevel -= 5; // accelerate drar 5 enheter batteri.
+
       if (batteryLevel < 0) {
         batteryLevel = 0;
       }
