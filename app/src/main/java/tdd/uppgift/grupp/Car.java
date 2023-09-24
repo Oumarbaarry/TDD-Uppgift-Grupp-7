@@ -138,7 +138,6 @@ public class Car {
       } else {
         gasState = 0;
         currentSpeed = 0;
-        turnOffLights();
       }
     } else if (isRunning && gear.equals("reverse")) {
       if (batteryLevel > 0) {
@@ -150,7 +149,6 @@ public class Car {
       } else {
         gasState = 0;
         currentSpeed = 0;
-        turnOffLights();
 
       }
     } else {
