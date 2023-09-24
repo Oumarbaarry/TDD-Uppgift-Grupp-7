@@ -11,46 +11,54 @@ class CarTest {
         Car car = new Car();
         assertNotNull(car);
     }
+
     @Test
-    public void testCarLights(){
+    public void testCarLights() {
         Car car = new Car();
         assertFalse(car.lightsOn);
 
     }
+
     @Test
-    public void lightsOn(){
+    public void lightsOn() {
         Car car = new Car();
         car.switchLightsOn();
         assertTrue(car.lightsOn);
 
     }
+
     @Test
-    public void backLights(){
+    public void backLights() {
         Car car = new Car();
         car.switchBackLightsOn();
         assertTrue(car.backLightsOn);
     }
+
     @Test
-    public void halfLightWholeLight(){
+    public void halfLightWholeLight() {
         Car car = new Car();
         car.wholeLight();
         assertFalse(car.halfLight);
 
     }
+
     @Test
-    public void startCar(){
+    public void startCar() {
         Car car = new Car();
+        assertFalse(car.carOn);
         car.startCar();
         assertTrue(car.carOn);
     }
+
     @Test
-    public void carOffLightsOff(){
+    public void carOffLightsOff() {
         Car car = new Car();
         car.turnOffCar();
         assertFalse(car.lightsOn);
 
 
     }
+
     @Test
     public void testTurnOffCar() {
         Car car = new Car();
@@ -62,4 +70,55 @@ class CarTest {
         assertFalse(car.backLightsOn);
         assertFalse(car.halfLight);
     }
+
+    @Test
+    public void testHazardLightsOn(){
+        Car car = new Car();
+        assertFalse(car.hazardLightsOn);
+        car.turnOnHazardLight();
+        assertTrue(car.hazardLightsOn);
+
+    }
+    @Test
+    public void testTurnHazardLightsof(){
+        Car car = new Car();
+        assertFalse(car.hazardLightsOn);
+        car.turnOnHazardLight();
+        assertTrue(car.hazardLightsOn);
+        car.turnOffHazardLight();
+        assertTrue(car.hazardlightsOf);
+    }
+    @Test
+    public void testAccelerate(){
+        Car car = new Car();
+        car.startCar();
+        assertEquals(0, car.getSpeed());
+        car.accelerate(100);
+        assertEquals(100, car.getSpeed());
+
+    }
+
+
+        @Test
+        public void testAccelerateToMaxSpeed() {
+            Car car = new Car();
+            car.startCar();
+            car.pressGasPedal();
+            while (car.getSpeed() < 180) {
+                car.accelerate(10);
+            }
+            assertEquals(180, car.getSpeed());
+        }
+    @Test
+    public void testDecelerateToZero() {
+        Car car = new Car();
+        car.startCar();
+        car.pressGasPedal();
+        while (car.getSpeed() > 0) {
+            car.decelerate(10);
+        }
+        assertEquals(0, car.getSpeed());
+    }
+
 }
+
