@@ -9,6 +9,7 @@ public class Car {
   private boolean hazardLightsOn;
   private int gasState; // Accelerate = 1, Brake = -1, Release gas and brake = 0
   private int currentSpeed;
+  private String gear;
 
   public Car() {
     this.isRunning = false;
@@ -19,6 +20,7 @@ public class Car {
     this.hazardLightsOn = false;
     this.gasState = 0;
     this.currentSpeed = 0;
+    this.gear = "drive";
   }
 
 
@@ -61,6 +63,10 @@ public class Car {
 
   public int getCurrentSpeed() {
     return currentSpeed;
+  }
+
+  public String getGear() {
+    return gear;
   }
 
 
@@ -132,11 +138,17 @@ public class Car {
     }
   }
 
+  public void setGear(String newGear) {
+    if (isRunning) {
+      if (newGear.equals("drive") || newGear.equals("reverse")) {
+        gear = newGear;
+      }
+    }
+  }
 
   public void releaseGasAndBrake() {
     gasState = 0;
   }
-
 
 }
 

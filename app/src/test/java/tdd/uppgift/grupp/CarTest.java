@@ -165,6 +165,28 @@ class CarTest {
 
     assertEquals(0, car.getCurrentSpeed());
   }
+  @Test
+  public void testSetGearToDrive() {
+    Car car = new Car();
+    car.setGear("drive");
+    assertEquals("drive", car.getGear());
+  }
+
+  @Test
+  public void testSetGearToReverse() {
+    Car car = new Car();
+    car.startCar();
+    car.setGear("reverse");
+    assertEquals("reverse", car.getGear());
+  }
+
+  @Test
+  public void testSetInvalidGear() {
+    Car car = new Car();
+    car.setGear("park");
+    assertEquals("drive", car.getGear());
+  }
+
 }
 
 
