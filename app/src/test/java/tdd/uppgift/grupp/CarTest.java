@@ -288,6 +288,20 @@ class CarTest {
     assertEquals(97, car.getBatteryLevel());
   }
 
+  @Test
+  public void testChargeBatteryCantGoOver100(){
+    Car car = new Car();
+    car.startCar();
+    car.turnOnLights();
+    car.accelerate();
+    System.out.println(car.getBatteryLevel());
+
+    car.chargeBattery(10);
+    System.out.println(car.getBatteryLevel());
+
+    assertEquals(100, car.getBatteryLevel());
+  }
+
 
 }
 
