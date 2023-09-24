@@ -95,6 +95,14 @@ class CarTest {
         assertTrue(car.areHazardLightsOn());
     }
 
+    @Test
+    public void testAccelerateCar() {
+        Car car = new Car();
+        car.startCar();
+        car.accelerate();
+        assertTrue(car.isAccelerating());
+    }
+
 
 
 }

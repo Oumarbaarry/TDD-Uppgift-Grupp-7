@@ -7,6 +7,7 @@ public class Car  {
   private boolean hasTailLights;
   private boolean isRunning;
   private boolean hazardLightsOn;
+  private boolean accelerating;
 
   public Car() {
     this.isRunning = false;
@@ -15,6 +16,7 @@ public class Car  {
     this.hasLowBeam = false;
     this.hasTailLights = false;
     this.hazardLightsOn = false;
+    this.accelerating = false;
   }
 
 
@@ -89,6 +91,16 @@ public class Car  {
 
   public void stopUsingHazardLights() {
     this.hazardLightsOn = false;
+  }
+
+  public void accelerate() {
+    if (isRunning) {
+      this.accelerating = true;
+    }
+  }
+
+  public boolean isAccelerating() {
+    return accelerating;
   }
 
 
