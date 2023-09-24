@@ -248,6 +248,19 @@ class CarTest {
     assertFalse(car.isAccelerating());
   }
 
+  @Test
+  public void testWhenBatteryIsEmptyLightsTurnsOff() {
+    Car car = new Car();
+    car.startCar();
+    car.turnOnLights();
+
+    while (car.getBatteryLevel() > 0) {
+      car.accelerate();
+    }
+
+    assertFalse(car.hasLights());
+  }
+
 
 }
 

@@ -137,7 +137,8 @@ public class Car {
         gasState = 1;
       } else {
         gasState = 0;
-        currentSpeed = 0; // När batteriet är tomt, stanna bilen.
+        currentSpeed = 0;
+        turnOffLights();
       }
     } else if (isRunning && gear.equals("reverse")) {
       if (batteryLevel > 0) {
@@ -148,7 +149,9 @@ public class Car {
         gasState = 1;
       } else {
         gasState = 0;
-        currentSpeed = 0; // När batteriet är tomt, stanna bilen.
+        currentSpeed = 0;
+        turnOffLights();
+
       }
     } else {
       gasState = 0;
@@ -187,12 +190,18 @@ public class Car {
     if (isRunning) {
       if (hasLights) {
         batteryLevel -= 1; // Lysen drar 1 enhet batteri.
+        if (batteryLevel <= 0) {
+          batteryLevel = 0;
+        }
       }
 
       batteryLevel -= 5; // accelerate drar 5 enheter batteri.
 
-      if (batteryLevel < 0) {
+      if (batteryLevel <= 0) {
         batteryLevel = 0;
+        gasState = 0; // När batteriet är tomt, stanna bilen.
+        currentSpeed = 0;
+        turnOffLights();
       }
     }
   }
