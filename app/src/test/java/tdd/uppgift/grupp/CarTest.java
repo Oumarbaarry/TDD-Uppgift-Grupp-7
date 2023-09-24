@@ -134,6 +134,22 @@ class CarTest {
         assertTrue(car.getCurrentSpeed() <= 180);
     }
 
+    @Test
+    public void testThatCarCanBrakeToZero() {
+        Car car = new Car();
+        car.startCar();
+
+        while (car.getCurrentSpeed() < 10) {
+            car.accelerate();
+        }
+
+        while (car.getCurrentSpeed() > 0) {
+            car.brake();
+        }
+
+        assertEquals(0, car.getCurrentSpeed());
+    }
+
 
 
 

@@ -123,6 +123,12 @@ public class Car  {
 
   public void brake() {
     if (isRunning) {
+
+      if (currentSpeed - 10 >= 0) {
+        currentSpeed -= 10;
+      } else {
+        currentSpeed = 0;
+      }
       gasState = -1;
     }
   }
