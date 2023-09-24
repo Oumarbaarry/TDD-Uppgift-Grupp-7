@@ -151,7 +151,7 @@ class CarTest {
   }
 
   @Test
-  public void testThatCarCantBrakeUnder0(){
+  public void testThatCarCantBrakeUnder0() {
     Car car = new Car();
     car.startCar();
 
@@ -165,6 +165,7 @@ class CarTest {
 
     assertEquals(0, car.getCurrentSpeed());
   }
+
   @Test
   public void testSetGearToDrive() {
     Car car = new Car();
@@ -233,17 +234,20 @@ class CarTest {
   }
 
   @Test
-  public void testConsumeBatteryWithLightsOff() {
+  public void testCarStopsAcceleratingWhenBatteryEmpty() {
     Car car = new Car();
     car.startCar();
-    car.turnOffLights();
-    int initialBatteryLevel = car.getBatteryLevel();
+    while (car.getBatteryLevel() > 0) {
+      car.accelerate();
+      System.out.println(car.getBatteryLevel());
+    }
 
-    car.consumeBattery();
 
-    int expectedBatteryLevel = initialBatteryLevel - 5;
-    assertEquals(expectedBatteryLevel, car.getBatteryLevel());
+    car.accelerate();
+
+    assertFalse(car.isAccelerating());
   }
+
 
 }
 

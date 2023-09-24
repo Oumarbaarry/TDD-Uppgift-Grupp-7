@@ -61,9 +61,6 @@ public class Car {
     return gasState == -1;
   }
 
-  public boolean isNeitherAcceleratingNorBraking() {
-    return gasState == 0;
-  }
 
   public int getCurrentSpeed() {
     return currentSpeed;
@@ -93,6 +90,7 @@ public class Car {
 
   public void stopCar() {
     this.isRunning = false;
+    gasState = 0;
     turnOffLights();
   }
 
@@ -131,21 +129,30 @@ public class Car {
 
   public void accelerate() {
     if (isRunning && gear.equals("drive")) {
-      consumeBattery();
-      if (currentSpeed + 10 <= 180) {
-        currentSpeed += 10;
+      if (batteryLevel > 0) {
+        consumeBattery();
+        if (currentSpeed + 10 <= 180) {
+          currentSpeed += 10;
+        }
+        gasState = 1;
+      } else {
+        gasState = 0;
+        currentSpeed = 0; // När batteriet är tomt, stanna bilen.
       }
-      gasState = 1;
-    } else if(isRunning && gear.equals("reverse")) {
-      consumeBattery();
-      if (currentSpeed - 10 >= -50) {
-        currentSpeed -= 10;
+    } else if (isRunning && gear.equals("reverse")) {
+      if (batteryLevel > 0) {
+        consumeBattery();
+        if (currentSpeed - 10 >= -50) {
+          currentSpeed -= 10;
+        }
+        gasState = 1;
+      } else {
+        gasState = 0;
+        currentSpeed = 0; // När batteriet är tomt, stanna bilen.
       }
-      gasState = 1;
     } else {
       gasState = 0;
     }
-
   }
 
   public void brake() {
@@ -190,9 +197,15 @@ public class Car {
     }
   }
 
-  public void releaseGasAndBrake() {
-    gasState = 0;
-  }
+//  public void ifBatteryEmptySetGasStateToZero(){
+//    if(batteryLevel == 0){
+//      this.gasState = 0;
+//    }
+//  }
+
+//  public void releaseGasAndBrake() {
+//    gasState = 0;
+//  }
 
 }
 
