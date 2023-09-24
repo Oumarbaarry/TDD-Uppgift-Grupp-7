@@ -124,21 +124,36 @@ public class Car {
   }
 
   public void accelerate() {
-    if (isRunning) {
+    if (isRunning && gear.equals("drive")) {
 
       if (currentSpeed + 10 <= 180) {
         currentSpeed += 10;
       }
       gasState = 1;
+    } else if(isRunning && gear.equals("reverse")) {
+      if (currentSpeed - 10 >= -50) {
+        currentSpeed -= 10;
+      }
+      gasState = 1;
+    } else {
+      gasState = 0;
     }
   }
 
   public void brake() {
     if (isRunning) {
-      if (currentSpeed - 10 >= 0) {
-        currentSpeed -= 10;
-      } else {
-        currentSpeed = 0;
+      if (gear.equals("drive")) {
+        if (currentSpeed - 10 >= 0) {
+          currentSpeed -= 10;
+        } else {
+          currentSpeed = 0;
+        }
+      } else if (gear.equals("reverse")) {
+        if (currentSpeed + 10 <= 0) {
+          currentSpeed += 10;
+        } else {
+          currentSpeed = 0;
+        }
       }
       gasState = -1;
       brakeLightOn = true;
@@ -146,7 +161,7 @@ public class Car {
   }
 
   public void setGear(String newGear) {
-    if (isRunning) {
+    if (isRunning && currentSpeed == 0) {
       if (newGear.equals("drive") || newGear.equals("reverse")) {
         gear = newGear;
       }

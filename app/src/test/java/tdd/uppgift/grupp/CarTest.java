@@ -195,6 +195,16 @@ class CarTest {
     assertTrue(car.isBrakeLightOn());
   }
 
+  @Test
+  public void testBrakeToZeroInReverse() {
+    Car car = new Car();
+    car.startCar();
+    car.setGear("reverse");
+    car.accelerate();
+    car.brake();
+    assertEquals(0, car.getCurrentSpeed());
+  }
+
 }
 
 
