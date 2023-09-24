@@ -261,6 +261,21 @@ class CarTest {
     assertFalse(car.hasLights());
   }
 
+  @Test
+  public void testWhenBatteryIsEmptyHazardLightsCanStillBeTurnedOn() {
+    Car car = new Car();
+    car.startCar();
+    car.turnOnLights();
+
+    while (car.getBatteryLevel() > 0) {
+      car.accelerate();
+    }
+
+    car.useHazardLights();
+
+    assertTrue(car.areHazardLightsOn());
+  }
+
 
 }
 
