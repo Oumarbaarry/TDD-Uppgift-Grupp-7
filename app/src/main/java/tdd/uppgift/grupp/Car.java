@@ -6,6 +6,7 @@ public class Car  {
   private boolean hasLowBeam;
   private boolean hasTailLights;
   private boolean isRunning;
+  private boolean hazardLightsOn;
 
   public Car() {
     this.isRunning = false;
@@ -13,6 +14,7 @@ public class Car  {
     this.hasHighBeam = false;
     this.hasLowBeam = false;
     this.hasTailLights = false;
+    this.hazardLightsOn = false;
   }
 
 
@@ -35,6 +37,10 @@ public class Car  {
 
   public boolean isRunning() {
     return isRunning;
+  }
+
+  public boolean areHazardLightsOn() {
+    return hazardLightsOn;
   }
 
 
@@ -75,6 +81,14 @@ public class Car  {
     this.hasLowBeam = true;
     this.hasLights = true;
     this.hasHighBeam = false;
+  }
+
+  public void useHazardLights() {
+    this.hazardLightsOn = true;
+  }
+
+  public void stopUsingHazardLights() {
+    this.hazardLightsOn = false;
   }
 
 

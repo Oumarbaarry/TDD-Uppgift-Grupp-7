@@ -78,6 +78,23 @@ class CarTest {
         assertFalse(car.hasLights());
     }
 
+    @Test
+    public void testUseHazardLightsWhenCarIsOn() {
+        Car car = new Car();
+        car.startCar();
+        car.useHazardLights();
+        assertTrue(car.areHazardLightsOn());
+    }
+
+    @Test
+    public void testUseHazardLightsWhenCarIsOff() {
+        Car car = new Car();
+        car.startCar();
+        car.stopCar();
+        car.useHazardLights();
+        assertTrue(car.areHazardLightsOn());
+    }
+
 
 
 }
