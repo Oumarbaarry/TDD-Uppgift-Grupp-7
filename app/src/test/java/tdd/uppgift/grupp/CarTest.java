@@ -150,6 +150,14 @@ class CarTest {
         assertEquals(0, car.getCurrentSpeed());
     }
 
+    @Test
+    public void testCarIsGoingInReverseIfBrakeUnder0(){
+        Car car = new Car();
+        car.startCar();
+        car.brake();
+        assertEquals(-10,car.getCurrentSpeed());
+    }
+
 
 
 

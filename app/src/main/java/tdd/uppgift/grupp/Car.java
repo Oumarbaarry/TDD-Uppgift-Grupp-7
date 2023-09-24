@@ -1,6 +1,6 @@
 package tdd.uppgift.grupp;
 
-public class Car  {
+public class Car {
   private boolean hasLights;
   private boolean hasHighBeam;
   private boolean hasLowBeam;
@@ -123,12 +123,7 @@ public class Car  {
 
   public void brake() {
     if (isRunning) {
-
-      if (currentSpeed - 10 >= 0) {
-        currentSpeed -= 10;
-      } else {
-        currentSpeed = 0;
-      }
+      currentSpeed -= 10;
       gasState = -1;
     }
   }
@@ -136,7 +131,6 @@ public class Car  {
   public void releaseGasAndBrake() {
     gasState = 0;
   }
-
 
 
 }
