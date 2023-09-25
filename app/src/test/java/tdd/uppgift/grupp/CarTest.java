@@ -125,9 +125,9 @@ class CarTest {
     Car car = new Car();
     car.startCar();
 
-    int previousSpeed = -1; // Sätter till ett ogiltigt värde initialt
+    int previousSpeed = -1;
 
-    // Fortsätt accelerera tills bilen inte kan accelerera längre
+
     while (car.getCurrentSpeed() > previousSpeed) {
       previousSpeed = car.getCurrentSpeed();
       car.accelerate();

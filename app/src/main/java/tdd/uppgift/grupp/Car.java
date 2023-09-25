@@ -184,6 +184,10 @@ public class Car {
     }
   }
 
+  public void setBatteryLevel(int batteryLevel) {
+    this.batteryLevel = batteryLevel;
+  }
+
   public void consumeBattery() {
     if (isRunning) {
       if (hasLights) {
@@ -200,6 +204,15 @@ public class Car {
         gasState = 0; // När batteriet är tomt, stanna bilen.
         currentSpeed = 0;
         turnOffLights();
+      }
+    }
+  }
+
+  public void chargeBattery(int amount) {
+    if (amount >= 0 && amount <= 100) {
+      batteryLevel += amount;
+      if (batteryLevel > 100) {
+        batteryLevel = 100;
       }
     }
   }
