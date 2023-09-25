@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.5.1 # Uppdaterad version kompatibel med Node.js 16
+        uses: actions/checkout@v2 # Uppdaterad version kompatibel med Node.js 16
 
       - name: Set up Java
-        uses: actions/checkout@v2.5.1 # Uppdaterad version kompatibel med Node.js 16
+        uses: actions/checkout@v2 # Uppdaterad version kompatibel med Node.js 16
         with:
           java-version: '17'
 
