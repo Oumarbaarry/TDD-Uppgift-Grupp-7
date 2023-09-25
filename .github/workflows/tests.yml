@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/checkout@v4
+        uses: actions/setup-java@v2
         with:
-          java-versions: 17
+          java-version: '17' # Använd rätt Java-version här, om du använder JDK 17.
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
