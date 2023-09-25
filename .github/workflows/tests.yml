@@ -11,12 +11,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # Använd rätt version av Node.js här.
 
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '17' # Använd rätt Java-version här, om du använder JDK 17.
+          java-version: '17' # Använd rätt Java-version här.
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
