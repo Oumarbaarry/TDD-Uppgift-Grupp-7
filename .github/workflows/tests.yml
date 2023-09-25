@@ -1,25 +1,29 @@
-name: Run Unit Tests
+name: Java Tests
 
 on:
   push:
     branches:
       - CompleteRefactor
+  pull_request:
+    branches:
+      - CompleteRefactor
 
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Java
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: 17
+          java-version: '17'
+
+      - name: Check out code
+        uses: actions/checkout@v2
 
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        run: ./gradlew build
 
-      - name: Run Unit Tests
-        run: ./gradlew test --no-daemon
+      - name: Run tests
+        run: ./gradlew test
