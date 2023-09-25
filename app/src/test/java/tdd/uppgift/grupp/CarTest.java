@@ -125,11 +125,14 @@ class CarTest {
     Car car = new Car();
     car.startCar();
 
-    while (car.getCurrentSpeed() < 170) {
-      car.accelerate();
-    }
+    int previousSpeed = -1; // Sätter till ett ogiltigt värde initialt
 
-    car.accelerate();
+    // Fortsätt accelerera tills bilen inte kan accelerera längre
+    while (car.getCurrentSpeed() > previousSpeed) {
+      previousSpeed = car.getCurrentSpeed();
+      car.accelerate();
+      System.out.println(car.getCurrentSpeed());
+    }
 
     assertTrue(car.getCurrentSpeed() <= 180);
   }
@@ -151,7 +154,7 @@ class CarTest {
   }
 
   @Test
-  public void testThatCarCantBrakeUnderZero() {
+  public void testThatCarCantBrakeUnder0() {
     Car car = new Car();
     car.startCar();
 
