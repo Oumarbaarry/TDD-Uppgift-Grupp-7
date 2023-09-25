@@ -3,7 +3,6 @@ name: Run Unit Tests
 on:
   push:
     branches:
-      - main
       - CompleteRefactor
 
 jobs:
@@ -11,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2.4.3 # Uppdaterad version kompatibel med Node.js 16
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: 11
+      - name: Set up Java
+        uses: actions/setup-java@v2.5.0 # Uppdaterad version kompatibel med Node.js 16
+        with:
+          java-version: '17'
 
-    - name: Build with Gradle
-      run: ./gradlew build --no-daemon
+      - name: Build with Gradle
+        run: ./gradlew build --no-daemon
 
-    - name: Run Unit Tests
-      run: ./gradlew test --no-daemon
+      - name: Run Unit Tests
+        run: ./gradlew test --no-daemon
