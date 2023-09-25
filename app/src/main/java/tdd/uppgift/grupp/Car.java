@@ -204,14 +204,6 @@ public class Car {
     }
   }
 
-  public void chargeBattery(int chargeAmount){
-    if (chargeAmount > 0){
-      batteryLevel += chargeAmount;
-      if (batteryLevel > 100){
-        batteryLevel = 100;
-      }
-    }
-  }
 
 }
 

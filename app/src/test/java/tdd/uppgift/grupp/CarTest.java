@@ -151,7 +151,7 @@ class CarTest {
   }
 
   @Test
-  public void testThatCarCantBrakeUnder0() {
+  public void testThatCarCantBrakeUnderZero() {
     Car car = new Car();
     car.startCar();
 
@@ -274,33 +274,9 @@ class CarTest {
     assertTrue(car.areHazardLightsOn());
   }
 
-  @Test
-  public void testChargeBattery() {
-    Car car = new Car();
-    car.startCar();
-    car.turnOnLights();
-    car.accelerate();
-    System.out.println(car.getBatteryLevel());
 
-    car.chargeBattery(3);
-    System.out.println(car.getBatteryLevel());
 
-    assertEquals(97, car.getBatteryLevel());
-  }
 
-  @Test
-  public void testChargeBatteryCantGoOver100(){
-    Car car = new Car();
-    car.startCar();
-    car.turnOnLights();
-    car.accelerate();
-    System.out.println(car.getBatteryLevel());
-
-    car.chargeBattery(10);
-    System.out.println(car.getBatteryLevel());
-
-    assertEquals(100, car.getBatteryLevel());
-  }
 
 
 }
