@@ -40,4 +40,9 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+
+    // Add detailed test logging
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
